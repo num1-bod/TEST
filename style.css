@@ -1,0 +1,329 @@
+/* --- 変数（保守性向上のための色・幅・余白） --- */
+:root {
+  --max-width: 1000px;
+  --gap: 20px;
+  --brand: #666;        /* ヘッダー背景（#999より濃くしてコントラスト改善） */
+  --accent: #999;       /* ボタン背景など */
+  --accent-hover: #666;
+  --border: #ccc;
+  --text: #222;
+  --muted: #555;
+  --card-bg: #fff;
+}
+
+/* --- 全体の基本スタイル --- */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* --- ヘッダー --- */
+header {
+  background-color: var(--brand);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: --max-width;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.nav-right ul {
+  font-size: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-right ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.nav-right ul li a:hover { color: #eaeaea; }
+
+/* キーボードフォーカスの可視化 */
+.nav-right ul li a:focus-visible,
+.card-link a:focus-visible {
+  outline: 3px solid #ffcc00;
+  outline-offset: 3px;
+}
+
+.header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+  font-weight: bold;
+}
+
+/* --- メインコンテンツ --- */
+main {
+  max-width: var(--max-width);
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+main h1 {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.625rem);
+  margin-bottom: 20px;
+}
+
+main p {
+  font-size: 1rem;
+}
+
+/* --- 写真カード --- */
+.photo-card-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card-title {
+  text-align: center;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  margin-bottom: 30px;
+}
+
+.photo-card {
+  display: flex;
+  gap: var(--gap);
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+/* 写真枠（共通） */
+.photo-frame {
+  flex: 0 0 40%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc; /* 写真なしでもスペース維持 */
+  position: relative;     /* プレースホルダー中央配置に必要 */
+}
+
+/* 比率と角丸はセクション別に */
+.circle-photo-section .photo-frame {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+.box-photo-section .photo-frame {
+  aspect-ratio: 4 / 3; /* 自然な四角写真 */
+  border-radius: 12px;
+}
+
+/* 画像は前面に表示してプレースホルダーを邪魔しない */
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.photo-description {
+  flex: 0 0 50%;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  margin-bottom: 20px;
+}
+
+/* --- 3セクションカード --- */
+.three-section-container {
+  max-width: var(--max-width);
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.three-section-title {
+  text-align: center;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  margin-bottom: 40px;
+}
+
+.three-section-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.three-section-card {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--border);
+  box-sizing: border-box;
+  border-radius: 20px;
+  text-align: center;
+  background: var(--card-bg);
+  transition: transform 0.2s ease-out;
+}
+
+.three-section-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 2/1.5 = 4/3 */
+  background-color: #CCC; /* 写真なしでも枠表示 */
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* プレースホルダー中央配置 */
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- プレースホルダー（写真なし時のテキスト） --- */
+.photo-frame .placeholder,
+.card-image .placeholder {
+  position: absolute;
+  inset: 0;                 /* 上下左右ぴったり */
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* 上下左右中央 */
+  text-align: center;
+  padding: 12px;
+  color: #666;
+  font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
+  line-height: 1.6;
+  z-index: 0;               /* 画像があるときは背面に隠れる */
+}
+
+.card-text {
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  padding: 0 16px;
+}
+
+.card-link {
+  margin-top: auto;
+  padding-bottom: 16px;
+}
+.card-link a {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 10px;
+  background-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+.card-link a:hover { background-color: var(--accent-hover); }
+
+/* --- フッター --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f3f3f3;
+  margin-top: 40px;
+  color: var(--muted);
+}
+
+/* --- レスポンシブ対応 --- */
+
+/* タブレット〜PC（900px以下） */
+@media screen and (max-width: 900px) {
+  .three-section-card { flex: 1 1 47%; } /* 横2列 */
+  .three-section-cards { gap: 16px; }
+  .header-text { font-size: clamp(1.125rem, 1rem + 1vw, 1.5rem); min-height: 200px; }
+}
+
+/* スマホ縦長表示（600px以下）— 写真左・テキスト右の横並びを維持＆最適化 */
+@media screen and (max-width: 500px) {
+  .three-section-card { flex: 1 1 100%; } /* 1列に */
+  .header-container { flex-direction: column; align-items: flex-start; }
+
+  .nav-right ul { flex-direction: column; gap: 10px; padding: 10px 0; }
+  .nav-right ul li a { font-size: 16px; }
+
+  .header-text { font-size: 1.125rem; padding: 20px 10px; min-height: 180px; }
+  main { padding: 0 15px; }
+  .card-text { font-size: 14px; }
+  .card-link a { padding: 6px 12px; font-size: 14px; }
+
+  /* ▼ スマホでも横並び維持（写真左／テキスト右） */
+  .photo-card {
+    flex-direction: row !important; /* 既存の column 指定を確実に上書き */
+    align-items: center;
+    gap: 12px; /* 間隔を少しタイトに */
+  }
+
+  /* 写真サイズ：画面幅に合わせて最適化（丸・四角それぞれの比率） */
+  .photo-frame {
+    flex: 0 0 42vw;  /* 写真に画面幅の約42%を割り当て */
+    width: 42vw;
+    max-width: 260px; /* 上限を設けて大きくなりすぎないように */
+  }
+  .circle-photo-section .photo-frame {
+    aspect-ratio: 1 / 1;  border-radius: 50%;
+  }
+  .box-photo-section .photo-frame {
+    aspect-ratio: 4 / 3;  border-radius: 12px;
+  }
+
+  /* テキスト側は残り幅を使って読みやすく */
+  .photo-description { flex: 1 1 auto; padding: 12px; }
+  .photo-description h3 { font-size: 16px; margin: 0 0 6px 0; line-height: 1.4; }
+  .photo-description p  { font-size: 14px; line-height: 1.7; margin: 0; }
+
+  /* セクション見出しをスマホ向けに少し縮小 */
+  .section-title { font-size: 1.25rem; margin-bottom: 16px; }
+}
+
+/* 動きを控えめにしたいユーザーへの配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .three-section-card:hover { transform: none; }
+}
