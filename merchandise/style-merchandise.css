@@ -1,0 +1,212 @@
+/* --- 変数（保守性向上のための色・幅・余白） --- */
+:root {
+  --max-width: 1000px;
+  --gap: 20px;
+  --brand: #666;        /* ヘッダー背景 */
+  --accent: #1976d2;    /* カートボタンの背景（青） */
+  --accent-hover: #125ea0; /* ホバー時の濃い青 */
+  --border: #ccc;
+  --text: #222;
+  --muted: #555;
+  --card-bg: #fff;
+}
+
+/* --- 全体の基本スタイル --- */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP",
+               "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo",
+               "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  font-size: 16px;
+  color: var(--text);
+}
+
+/* --- ヘッダー --- */
+header {
+  background-color: var(--brand);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width); /* 修正済み */
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.nav-right ul {
+  font-size: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-right ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.nav-right ul li a:hover { color: #eaeaea; }
+
+/* キーボードフォーカスの可視化 */
+.nav-right ul li a:focus-visible,
+.card-link a:focus-visible {
+  outline: 3px solid rgba(255, 204, 0, 0.95);
+  outline-offset: 3px;
+}
+
+/* ヒーロー文言 */
+.header-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 250px;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.6rem);
+  font-weight: bold;
+}
+
+/* --- メインコンテンツ --- */
+main {
+  max-width: var(--max-width);
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- 3セクションカード --- */
+.three-section-container {
+  max-width: var(--max-width);
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.three-section-title {
+  text-align: center;
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 2rem);
+  margin-bottom: 40px;
+}
+
+.three-section-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.three-section-card {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--border);
+  box-sizing: border-box;
+  border-radius: 20px;
+  text-align: center;
+  background: var(--card-bg);
+  transition: transform 0.2s ease-out;
+}
+.three-section-card:hover { transform: translateY(-5px); }
+
+.card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #CCC; /* 画像なしでも枠表示 */
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-text {
+  font-size: 16px;
+  margin: 0 0 15px 0;
+  padding: 0 16px;
+}
+
+.card-link {
+  margin-top: auto;
+  padding-bottom: 16px;
+}
+.card-link a {
+  display: inline-block;
+  padding: 8px 16px;
+  margin: 10px;
+  background-color: #32a852;   /* 緑（コメントは元のまま） */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+.card-link a:hover {
+  background-color: #32a852; /* ホバー時 */
+}
+
+/* --- フッター --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #f3f3f3;
+  margin-top: 40px;
+  color: var(--muted);
+}
+
+/* --- レスポンシブ対応 --- */
+
+/* タブレット（900px以下） */
+@media screen and (max-width: 900px) {
+  .three-section-card   { flex: 1 1 47%; } /* 横2列 */
+  .three-section-cards  { gap: 16px; }
+  .header-text          { font-size: clamp(1.125rem, 1rem + 1vw, 1.5rem); min-height: 200px; }
+}
+
+/* スマホ（600px以下） */
+@media screen and (max-width: 600px) {
+  /* 2列に変更 */
+  .three-section-card { flex: 1 1 48%; } /* 約半分の幅で2列 */
+  .three-section-cards { gap: 12px; }     /* 2列時の余白を少し狭く */
+
+  .header-container { flex-direction: column; align-items: flex-start; }
+  .nav-right ul { flex-direction: column; gap: 10px; padding: 10px 0; }
+  .nav-right ul li a { font-size: 16px; }
+
+  .header-text { font-size: 1.125rem; padding: 20px 10px; min-height: 180px; }
+
+  .card-text { font-size: 14px; }
+  .card-link a { padding: 6px 12px; font-size: 14px; }
+}
+
+/* 動きを控えめにしたいユーザーへの配慮 */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .three-section-card:hover { transform: none; }
+}
