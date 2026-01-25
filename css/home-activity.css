@@ -1,0 +1,160 @@
+/* ===========================================
+   ACTIVITY 横スクロールカード（JS不要版）
+=========================================== */
+
+/* =====================
+   変数
+===================== */
+:root {
+  --activity-title-color: #1F5199;
+
+  --activity-card-width-pc: calc((100% - 3 * 20px) / 3.5);
+  --activity-card-width-sp: calc((100% - 15px) / 1.5);
+
+  --activity-card-gap: 20px;
+
+  --activity-card-bg: #fff;
+  --activity-card-border: 2px solid #ccc;
+  --activity-card-radius: 12px;
+  --activity-card-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  --activity-text-color: #333;
+  --activity-date-color: #666;
+}
+
+/* =====================
+   全体設定
+===================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* 万一の横スクロール防止 */
+}
+
+/* =====================
+   セクション
+===================== */
+.activity-section {
+  margin: 40px 0;
+  text-align: center;
+}
+
+.activity-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--activity-title-color);
+  border-bottom: 3px solid var(--activity-title-color);
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+}
+
+/* =====================
+   スライダー
+===================== */
+.activity-slider {
+  display: flex;
+  gap: var(--activity-card-gap);
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.activity-slider::-webkit-scrollbar {
+  height: 8px;
+}
+.activity-slider::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+.activity-slider::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+.activity-slider {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.2) rgba(0,0,0,0.05);
+}
+
+/* =====================
+   カード
+===================== */
+.activity-card {
+  flex: 0 0 var(--activity-card-width-pc);
+  background: var(--activity-card-bg);
+  border: var(--activity-card-border);
+  border-radius: var(--activity-card-radius);
+  box-shadow: var(--activity-card-shadow);
+  overflow: hidden;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
+}
+
+.activity-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  background-color: #e0e0e0;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.activity-content {
+  padding: 15px;
+  text-align: left;
+}
+
+.activity-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--activity-title-color);
+  margin-bottom: 8px;
+}
+
+.activity-card-text {
+  font-size: 0.95em;
+  line-height: 1.6;
+  color: var(--activity-text-color);
+  margin-bottom: 10px;
+}
+
+.activity-card-date {
+  font-size: 0.85em;
+  color: var(--activity-date-color);
+  text-align: right;
+}
+
+/* =====================
+   スマホ対応
+===================== */
+@media (max-width: 768px) {
+  .activity-title {
+    font-size: 1.5em;
+  }
+
+  .activity-slider {
+    gap: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .activity-card {
+    flex: 0 0 min(var(--activity-card-width-sp), 100%);
+  }
+}

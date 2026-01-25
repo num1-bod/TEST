@@ -1,0 +1,72 @@
+/* -------------------------------
+   ルート変数：よく変更する値
+--------------------------------*/
+:root {
+  /* NEWS見出しのカラー */
+  --news-color-title: #1F5199;
+
+  /* NEWS見出しのフォントサイズ */
+  --news-font-size-desktop: 2em;
+  --news-font-size-mobile: 1.5em;
+
+  /* NEWS見出しの下線の太さ */
+  --news-border-size-desktop: 3px;
+  --news-border-size-mobile: 2px;
+
+  /* NEWS見出しと下線の間隔 */
+  --news-padding-bottom-desktop: 5px;
+  --news-padding-bottom-mobile: 4px;
+
+  /* NEWSセクションの上下余白 */
+  --news-section-margin: 20px 0;
+
+  /* 画像最大幅 */
+  --news-image-max-width: 1200px;
+
+  /* 画像横幅 */
+  --news-image-width: 95%;
+}
+
+/* -------------------------------
+   ニュースセクション全体
+--------------------------------*/
+.news-section {
+  text-align: center; /* セクション内の文字・画像を中央揃え */
+  margin: var(--news-section-margin);
+}
+
+/* -------------------------------
+   ニュース見出し
+--------------------------------*/
+.news-title {
+  font-size: var(--news-font-size-desktop); /* デスクトップサイズ */
+  font-weight: bold;
+  text-align: center; /* 横画面で中央揃え */
+  color: var(--news-color-title); /* 文字色 */
+  border-bottom: var(--news-border-size-desktop) solid var(--news-color-title); /* 下線 */
+  display: inline-block; /* 下線を文字幅に合わせる */
+  padding-bottom: var(--news-padding-bottom-desktop); /* 下線と文字の間隔 */
+  margin-bottom: 20px; /* 下に余白 */
+}
+
+/* -------------------------------
+   ニュース画像
+--------------------------------*/
+.news-image {
+  width: var(--news-image-width); /* 横幅95% */
+  max-width: var(--news-image-max-width); /* 最大幅制限 */
+  height: auto; /* 縦横比を維持 */
+  display: block;
+  margin: 0 auto; /* センター配置 */
+}
+
+/* -------------------------------
+   スマホ対応：画面幅768px以下
+--------------------------------*/
+@media (max-width: 768px) {
+  .news-title {
+    font-size: var(--news-font-size-mobile); /* フォントサイズを小さく */
+    border-bottom: var(--news-border-size-mobile) solid var(--news-color-title); /* 下線を細く */
+    padding-bottom: var(--news-padding-bottom-mobile); /* 下線と文字の間隔調整 */
+  }
+}

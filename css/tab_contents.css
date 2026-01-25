@@ -1,0 +1,85 @@
+/* =====================================================
+  ▼ タブナビ基本設定
+===================================================== */
+:root {
+  --tab_contents-color-bg-tab: #E5ECF2;   
+  --tab_contents-color-border: #ddd;      
+  --tab_contents-color-text: #1F5199;     
+  --tab_contents-color-active: #1F5199;   
+  --tab_contents-padding-y: 14px;         
+  --tab_contents-padding-content: 20px;   
+  /* --tab_contents-padding-content-sp: 10px; */
+  --tab-nav-height: 50px;                 
+}
+
+/* =====================================================
+  ▼ タブナビ固定（ヘッダー下）
+===================================================== */
+.tab-nav-wrapper {
+  position: sticky;
+  top: var(--header-height); /* ヘッダー直下 */
+  z-index: 1150;
+  background: var(--tab_contents-color-bg-tab);
+  border-bottom: 1px solid var(--tab_contents-color-border);
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden; /* 横スクロールなし */
+}
+
+/* タブリスト */
+.tab-nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* 各タブ */
+.tab-item {
+  flex: 1 1 auto; 
+  text-align: center;
+  padding: var(--tab_contents-padding-y) 0;
+  cursor: pointer;
+  color: var(--tab_contents-color-text);
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+  font-size: 1rem; /* PC用 */
+}
+
+.tab-item.active {
+  color: var(--tab_contents-color-active);
+  border-bottom-color: var(--tab_contents-color-active);
+}
+
+/* =====================================================
+  ▼ コンテンツ
+===================================================== */
+.tab-contents-wrapper {
+  padding: 0; /* 余白なし */
+}
+
+.tab-content {
+  display: none;
+  padding: var(--tab_contents-padding-content) 0;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.tab-inner {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+/* =====================================================
+  ▼ スマホ表示
+===================================================== */
+@media (max-width: 768px) {
+  .tab-item { font-size: 0.9rem; }
+  .tab-content { padding: var(--tab_contents-padding-content-sp) 0; }
+}

@@ -1,0 +1,71 @@
+/* =========================
+   MIZUMATCHの由来
+========================= */
+.origin {
+  padding: 80px 20px;
+}
+
+.origin-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 見出し（既存のスタイルと統一） */
+.origin .section-title {
+  margin-bottom: 56px;
+}
+
+.origin .section-title span {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1F5199;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #1F5199;
+}
+
+/* 大きな文章 */
+.origin-main {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1F5199;
+  margin-bottom: 40px;
+}
+
+/* 小さい文章（線で囲む） */
+.origin-sub-wrapper {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 16px;
+}
+
+.origin-sub {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #444;
+  margin: 0;
+}
+
+/* =========================
+   スマホ対応
+========================= */
+@media (max-width: 768px) {
+  .origin {
+    padding: 60px 16px;
+  }
+
+  .origin .section-title span {
+    font-size: 1.5rem;
+  }
+
+  .origin-main {
+    font-size: 1.2rem;
+  }
+
+  .origin-sub {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
