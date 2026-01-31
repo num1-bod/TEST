@@ -1,0 +1,35 @@
+/* =====================
+  カスタムプロパティ（テーマカラー）
+===================== */
+:root {
+  /* 全体背景 */
+  --bg-color: #E5ECF2;
+  --text-color: #000;
+  
+  /* ヘッダー */
+  --header-bg: var(--bg-color);
+  --header-border: #ddd;
+
+  /* ロゴ */
+  --logo-text-color: #1F5199;
+
+  /* PCナビ */
+  --nav-link-color: #000;
+  --nav-link-hover-color: #1F5199;
+  --nav-underline-color: #1F5199;
+
+  /* タブ */
+  --tab-bg: var(--bg-color);
+  --tab-text-color: #999;
+  --tab-active-color: #1F5199;
+  --tab-underline-color: #ccc;
+  --tab-active-underline-color: #1F5199;
+
+  /* ボタン */
+  --btn-bg: #1F5199;
+  --btn-text: #fff;
+
+  /* モバイルメニュー */
+  --mobile-bg: var(--bg-color);
+  --mobile-link-color: #1F5199;
+}
