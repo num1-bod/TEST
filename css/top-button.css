@@ -1,0 +1,70 @@
+/* ---------------------------
+   ルート変数
+   誰でも簡単に色やサイズを変更可能
+--------------------------- */
+:root {
+  /* PC用 */
+  --btn-pc-font-size: 16px;
+  --btn-pc-padding-vertical: 10px;
+  --btn-pc-padding-horizontal: 60px;
+  --btn-pc-border-radius: 30px;
+  --btn-pc-text-color: #1F5199;
+  --btn-pc-border-color: #1F5199;
+  --btn-pc-bg-color: transparent;
+  --btn-pc-bg-hover: #1F5199;
+  --btn-pc-text-hover: #fff;
+
+  /* スマホ用 */
+  --btn-sp-font-size: 16px;
+  --btn-sp-padding-vertical: 10px;
+  --btn-sp-padding-horizontal: 50px;
+  --btn-sp-border-radius: 25px;
+  --btn-sp-text-color: #1F5199;
+  --btn-sp-border-color: #1F5199;
+  --btn-sp-bg-color: transparent;
+  --btn-sp-bg-hover: #1F5199;
+  --btn-sp-text-hover: #fff;
+}
+
+/* ---------------------------
+   ページトップボタン共通
+--------------------------- */
+.back-to-top-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#back-to-top {
+  font-size: var(--btn-pc-font-size);
+  padding: var(--btn-pc-padding-vertical) var(--btn-pc-padding-horizontal);
+  color: var(--btn-pc-text-color);
+  border: 2px solid var(--btn-pc-border-color);
+  background-color: var(--btn-pc-bg-color);
+  border-radius: var(--btn-pc-border-radius);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#back-to-top:hover {
+  background-color: var(--btn-pc-bg-hover);
+  color: var(--btn-pc-text-hover);
+}
+
+/* ---------------------------
+   スマホ用スタイル
+--------------------------- */
+@media screen and (max-width: 768px) {
+  #back-to-top {
+    font-size: var(--btn-sp-font-size);
+    padding: var(--btn-sp-padding-vertical) var(--btn-sp-padding-horizontal);
+    color: var(--btn-sp-text-color);
+    border: 2px solid var(--btn-sp-border-color);
+    background-color: var(--btn-sp-bg-color);
+    border-radius: var(--btn-sp-border-radius);
+  }
+
+  #back-to-top:hover {
+    background-color: var(--btn-sp-bg-hover);
+    color: var(--btn-sp-text-hover);
+  }
+}

@@ -1,0 +1,43 @@
+/* ---------------------------
+   h1用ルート変数
+--------------------------- */
+:root {
+  --h1-font-size-pc: 36px;      /* PCフォントサイズ */
+  --h1-font-size-sp: 28px;      /* スマホフォントサイズ */
+  --h1-color: #1F5199;          /* 文字色 */
+  --h1-underline-color: #1F5199; /* 下線色 */
+  --h1-underline-thickness: 3px; /* 下線の太さ */
+  --h1-underline-gap: 8px;       /* 下線と文字の間隔 */
+  --h1-font-weight: 700;         /* 文字の太さ */
+}
+
+/* ---------------------------
+   ラッパーで中央揃え
+--------------------------- */
+.h1-wrapper {
+  width: 100%;         /* 画面幅いっぱい */
+  text-align: center;  /* 中央揃え */
+  margin: 15px 0;      /* 上下の余白 */
+}
+
+/* ---------------------------
+   h1スタイル
+--------------------------- */
+.h1-wrapper h1 {
+  display: inline-block;  /* 下線を文字幅に合わせる */
+  font-size: var(--h1-font-size-pc);
+  font-weight: var(--h1-font-weight);
+  color: var(--h1-color);
+  border-bottom: var(--h1-underline-thickness) solid var(--h1-underline-color);
+  padding-bottom: var(--h1-underline-gap);
+  margin: 0;              /* 上下の余白はラッパーで調整 */
+}
+
+/* ---------------------------
+   スマホ用スタイル
+--------------------------- */
+@media screen and (max-width: 768px) {
+  .h1-wrapper h1 {
+    font-size: var(--h1-font-size-sp);
+  }
+}
