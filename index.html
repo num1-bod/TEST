@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>MIZUMATCH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS適応 -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/mobile.css">
+  <link rel="stylesheet" href="./css/tabs.css">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/top-button.css">
+  <link rel="stylesheet" href="./css/footer.css">
+
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+
+    <!-- ハンバーガー -->
+    <button class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- ロゴ -->
+    <div class="logo">
+      <div class="logo-img"></div>
+      <span class="logo-text">MIZUMATCH</span>
+    </div>
+
+    <!-- PCナビ -->
+    <nav class="pc-nav">
+      <a href="#" data-tab="home">ホーム</a>
+      <a href="#" data-tab="circle">サークル</a>
+      <a href="#" data-tab="event">イベント</a>
+      <a href="#" data-tab="activity">活動</a>
+    </nav>
+
+    <!-- PC用ボタン -->
+    <button class="join-btn pc-only">未定</button>
+  </div>
+</header>
+
+<!-- タブ -->
+<div class="tabs">
+  <button class="tab active" data-tab="home">ホーム</button>
+  <button class="tab" data-tab="circle">サークル</button>
+  <button class="tab" data-tab="event">イベント</button>
+  <button class="tab" data-tab="activity">活動</button>
+</div>
+
+<!-- モバイルメニュー -->
+<div class="overlay" id="overlay"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <div class="mobile-menu-links">
+    <a href="#" data-tab="home">ホーム</a>
+    <a href="#" data-tab="circle">サークル</a>
+    <a href="#" data-tab="event">イベント</a>
+    <a href="#" data-tab="activity">活動</a>
+  </div>
+  <div class="mobile-menu-footer">
+    <button class="join-btn">未定</button>
+  </div>
+</nav>
+
+<main class="content">
+  <section class="tab-content active" id="home">
+    <div class="h1-wrapper">
+      <h1>ホーム</h1>
+    </div>
+    <p>ホームの内容</p>
+  </section>
+
+  <section class="tab-content" id="circle">
+    <div class="h1-wrapper">
+      <h1>サークル</h1>
+    </div>
+    <p>サークルの内容</p>
+  </section>
+
+  <section class="tab-content" id="event">
+    <div class="h1-wrapper">
+      <h1>イベント</h1>
+    </div>
+    <p>イベントの内容</p>
+  </section>
+
+  <section class="tab-content" id="activity">
+    <div class="h1-wrapper">
+      <h1>活動</h1>
+    </div>
+    <p>活動の内容</p>
+  </section>
+</main>
+
+<div class="back-to-top-container">
+  <button id="back-to-top">ページトップへ</button>
+</div>
+
+<!-- footer.html -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>ホーム</h4>
+      <ul>
+        <li><a href="#">トップページ</a></li>
+        <li><a href="#">お知らせ</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>サークル</h4>
+      <ul>
+        <li><a href="#">サークル紹介</a></li>
+        <li><a href="#">メンバー</a></li>
+        <li><a href="#">入会案内</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>イベント</h4>
+      <ul>
+        <li><a href="#">今後のイベント</a></li>
+        <li><a href="#">過去のイベント</a></li>
+        <li><a href="#">イベントレポート</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>活動</h4>
+      <ul>
+        <li><a href="#">活動内容</a></li>
+        <li><a href="#">ボランティア</a></li>
+        <li><a href="#">プロジェクト</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>お問い合わせ</h4>
+      <ul>
+        <li><a href="#">お問い合わせフォーム</a></li>
+        <li><a href="#">サポート</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>SNS</h4>
+      <ul class="sns-list">
+        <li>
+          <a href="#" target="_blank">
+            <img src="images/instagram.png" alt="Instagram" class="sns-icon" onerror="this.style.display='none'"> Instagram
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <img src="images/x.png" alt="X" class="sns-icon" onerror="this.style.display='none'"> X
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <img src="images/facebook.png" alt="Facebook" class="sns-icon" onerror="this.style.display='none'"> Facebook
+          </a>
+        </li>
+        <li>
+          <a href="#" target="_blank">
+            <img src="images/tiktok.png" alt="TikTok" class="sns-icon" onerror="this.style.display='none'"> TikTok
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 サークル名. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+<script src="./js/hamburger.js"></script>
+<script src="./js/tabs.js"></script>
+<script src="./js/top-button.js"></script>
+</body>
+</html>
