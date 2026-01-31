@@ -1,0 +1,250 @@
+/* =====================
+  リセット
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background: #E5ECF2; /* 全体背景色 */
+}
+a { text-decoration: none; color: inherit; }
+button { border: none; background: none; cursor: pointer; }
+
+/* =====================
+  ヘッダー
+===================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  background: #E5ECF2; 
+  z-index: 3000;
+  border-bottom: 1px solid #ddd;
+}
+
+.header-inner {
+  height: 70px; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  position: relative;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+/* ロゴ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-img {
+  width: 36px; height: 36px;
+  background: #ccc;
+  border-radius: 50%;
+}
+.logo-text {
+  font-size: 20px; 
+  font-weight: bold;
+  color: #1F5199;
+}
+
+/* PCナビ */
+.pc-nav {
+  display: flex;
+  gap: 32px;
+}
+.pc-nav a {
+  font-weight: 500;
+  position: relative;
+}
+.pc-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px; left: 0;
+  width: 0; height: 2px;
+  background: #1F5199;
+  transition: 0.3s;
+}
+.pc-nav a:hover::after { width: 100%; }
+
+/* ボタン */
+.join-btn {
+  padding: 10px 20px; 
+  background: #1F5199; 
+  color: #fff;
+  border-radius: 20px;
+  font-size: 14px;
+}
+.pc-only { display: inline-block; }
+
+/* ハンバーガー */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: #000;
+  transition: 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* =====================
+  タブ
+===================== */
+.tabs {
+  position: fixed;
+  top: 70px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px; 
+  display: flex;
+  z-index: 2000;
+  background: #E5ECF2; 
+  border-top: 1px solid #ddd;
+}
+
+/* 未選択タブ */
+.tab {
+  flex: 1;
+  padding: 18px 0; 
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold; 
+  background: transparent;
+  color: #666; /* 未選択タブの文字色 */
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/* 未選択タブホバーで濃くなる */
+.tab:not(.active):hover {
+  color: #1F5199;
+}
+
+/* 選択中タブ */
+.tab.active {
+  color: #1F5199;
+}
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+  background: #1F5199;
+  border-radius: 2px;
+}
+
+/* =====================
+  モバイルメニュー
+===================== */
+.overlay {
+  position: fixed; inset: 0;
+  background: transparent; /* 背景を透過 */
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 2500;
+}
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0; left: -200px; 
+  width: 200px; /* 横幅固定 */
+  height: 100%;
+  background: #E5ECF2; /* メニュー背景色 */
+  padding: 80px 20px 20px;
+  transition: 0.3s;
+  z-index: 2600;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-right: 1px solid #ddd; /* 境界線薄灰色 */
+}
+.mobile-nav.active { left: 0; }
+
+.mobile-menu-links a {
+  display: block;
+  font-size: 16px;
+  padding: 12px 0;
+  color: #1F5199; 
+  border-bottom: none; /* 下線削除 */
+}
+.mobile-menu-footer { margin-top: auto; text-align: center; }
+.mobile-menu-footer .join-btn { width: 100%; }
+
+/* =====================
+  コンテンツ
+===================== */
+.content {
+  padding-top: 140px; 
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.tab-content { display: none; padding: 24px; }
+.tab-content.active { display: block; }
+
+/* =====================
+  フッター
+===================== */
+footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #E5ECF2;
+  text-align: center;
+}
+
+/* =====================
+  スマホ対応
+===================== */
+@media (max-width: 768px) {
+  .pc-nav, .pc-only { display: none; }
+
+  .header-inner {
+    justify-content: flex-start;
+    gap: 16px;
+    position: relative;
+  }
+
+  .hamburger {
+    display: flex;
+    position: relative;
+    z-index: 3100;
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3000;
+  }
+}
