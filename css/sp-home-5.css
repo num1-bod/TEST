@@ -1,0 +1,79 @@
+/* スマホ版専用スタイル (sp-home-5) 6件スクロール版 */
+.sp-home-5 {
+    padding: 10px 15px;
+    background-color: #fff;
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.sp-home-5 .news-scroll-container {
+    /* お知らせ約2つ分が見える高さ。残りはスクロールで閲覧可能。 */
+    height: 240px; 
+    overflow-y: auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    /* iOSでの操作感を向上 */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* スクロールバーのデザインを控えめに */
+.sp-home-5 .news-scroll-container::-webkit-scrollbar {
+    width: 4px;
+}
+.sp-home-5 .news-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 4px;
+}
+
+.sp-home-5 .news-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sp-home-5 .news-item {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.sp-home-5 .news-item:last-child {
+    border-bottom: none;
+}
+
+.sp-home-5 .news-content {
+    padding: 15px;
+}
+
+.sp-home-5 .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.sp-home-5 .news-date {
+    font-size: 11px;
+    color: #888;
+}
+
+.sp-home-5 .news-category {
+    font-size: 10px;
+    background: #1F5199; /* 瑞穂生涯学習センターの元気なイメージカラー */
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.sp-home-5 .news-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    color: #333;
+}
+
+.sp-home-5 .news-text strong {
+    display: block;
+    color: #000;
+    font-size: 14px;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+}
